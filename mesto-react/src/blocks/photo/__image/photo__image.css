@@ -1,0 +1,9 @@
+.photo__image {
+  height: 282px;
+  width: 100%;
+  margin: 0;
+}
+
+.photo__image:hover {
+  cursor: pointer;
+}

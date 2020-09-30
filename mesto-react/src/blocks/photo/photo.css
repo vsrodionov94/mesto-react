@@ -1,0 +1,20 @@
+@import url('./__text/photo__text.css');
+@import url('./__item/photo__item.css');
+@import url('./__image/photo__image.css');
+@import url('./__caption/photo__caption.css');
+@import url('./__like-button/photo__like-button.css');
+@import url('./__like-button/_active/photo__like-button_active.css');
+@import url('./__delete-button/photo__delete-button.css');
+@import url('./__cards/photo__cards.css');
+@import url('./__like-counter/photo__like-counter.css');
+@import url('./__delete-button/_state/card__delete-button_state_hidden.css');
+@import url('./__delete-button/_state/card__delete-button_state_visible.css');
+
+.photo {
+  max-width: 882px;
+  margin: 0 auto;
+  padding-top: 51px;
+  display: flex;
+  justify-content: center;
+}
+
