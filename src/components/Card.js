@@ -6,7 +6,7 @@ function Card(props) {
   }
   return (
     <li className="photo__item" key={props.card._id}>
-      <button className="photo__delete-button" type="button" />
+      <button className="photo__delete-button" type="button" onClick={props.onDeleteClick}/>
       <div
         className="photo__image"
         style={{ backgroundImage: `url(${props.card.link})` }}

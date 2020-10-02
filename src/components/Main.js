@@ -65,7 +65,7 @@ function Main(props) {
       <section className="photo">
         <ul className="photo__cards">
           {cards.map((item) => {
-            return <Card card={item} onCardClick={props.onCardClick} />;
+            return <Card card={item} onCardClick={props.onCardClick} onDeleteClick={props.onDeleteClick}/>;
           })}
         </ul>
       </section>
@@ -144,6 +144,7 @@ function Main(props) {
       <PopupWithForm
         name="confirm-delete"
         title="Вы уверены?"
+        isOpen={props.isDeletePopupOpen}
         onClose={props.onClose}
       />
       <ImagePopup
