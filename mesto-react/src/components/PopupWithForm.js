@@ -17,6 +17,7 @@ function PopupWithForm(props) {
           className="modal__esc-button"
           type="button"
           aria-label="Закрыть"
+          onClick={props.onClose}
         />
       </form>
     </section>

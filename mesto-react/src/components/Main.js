@@ -26,16 +26,17 @@ function Main(props) {
     <main className="content">
       <section className="profile">
         <div className="profile__avatar">
-          <img
-            alt="Аватар"
+          <div
             className="profile__avatar-image"
-            src={userAvatar}
+            style={{ backgroundImage: `url(${userAvatar})` }}
           />
           <button
             className="profile__avatar-edit-button"
             type="button"
             aria-label="Изменить"
-            onClick={props.onEditAvatar}
+            onClick={() => {
+              props.onEditAvatar(true);
+            }}
           />
         </div>
         <div className="profile__info">
@@ -45,7 +46,9 @@ function Main(props) {
               className="profile__edit-button"
               type="button"
               aria-label="Изменить"
-              onClick={props.onEditProfile}
+              onClick={() => {
+                props.onEditProfile(true);
+              }}
             />
           </div>
           <p className="profile__profession"> {userDescription} </p>
@@ -54,13 +57,15 @@ function Main(props) {
           className="profile__add-button"
           type="button"
           aria-label="Добавить"
-          onClick={props.onAddPlace}
+          onClick={() => {
+            props.onAddPlace(true);
+          }}
         />
       </section>
       <section className="photo">
         <ul className="photo__cards">
           {cards.map((item) => {
-            return <Card card={item} />;
+            return <Card card={item} onCardClick={props.onCardClick} />;
           })}
         </ul>
       </section>
@@ -68,6 +73,7 @@ function Main(props) {
         name="form-edit"
         title="Редактировать профиль"
         isOpen={props.isEditProfilePopupOpen}
+        onClose={props.onClose}
       >
         <input
           type="text"
@@ -96,6 +102,7 @@ function Main(props) {
         name="form-add"
         title="Новое место"
         isOpen={props.isAddPlacePopupOpen}
+        onClose={props.onClose}
       >
         <input
           type="text"
@@ -122,6 +129,7 @@ function Main(props) {
         name="form-avatar"
         title="Обновить аватар"
         isOpen={props.isEditAvatarPopupOpen}
+        onClose={props.onClose}
       >
         <input
           type="url"
@@ -133,8 +141,16 @@ function Main(props) {
         />
         <p className="modal__field-error" id="field-link-error" />
       </PopupWithForm>
-      <PopupWithForm name="confirm-delete" title="Вы уверены?" />
-      <ImagePopup />
+      <PopupWithForm
+        name="confirm-delete"
+        title="Вы уверены?"
+        onClose={props.onClose}
+      />
+      <ImagePopup
+        isOpen={props.isImagePopupOpen}
+        card={props.selectedCard}
+        onClose={props.onClose}
+      />
     </main>
   );
 }
