@@ -13,7 +13,7 @@ function App() {
   );
   const [isImagePopupOpen, setIsImagePoupOpen] = React.useState(false);
 
-  const [selectedCard, setSelectedCard] = React.useState("");
+  const [selectedCard, setSelectedCard] = React.useState("clear");
 
   const onClose = () => {
     setIsEditProfilePopupOpen(false);
