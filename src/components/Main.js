@@ -1,6 +1,4 @@
 import React from "react";
-import PopupWithForm from "./PopupWithForm.js";
-import ImagePopup from "./ImagePopup.js";
 import Card from "./Card.js";
 import api from "../utils/Api.js";
 
@@ -10,17 +8,27 @@ function Main(props) {
   const [userAvatar, setUserAvatar] = React.useState();
   const [cards, setCards] = React.useState([]);
   React.useEffect(() => {
-    api.getUserData().then((data) => {
-      setUserName(data.name);
-      setUserDescription(data.about);
-      setUserAvatar(data.avatar);
-    });
+    api
+      .getUserData()
+      .then((data) => {
+        setUserName(data.name);
+        setUserDescription(data.about);
+        setUserAvatar(data.avatar);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   React.useEffect(() => {
-    api.getInitialCards().then((dataCards) => {
-      setCards(dataCards);
-    });
-  });
+    api
+      .getInitialCards()
+      .then((dataCards) => {
+        setCards(dataCards);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <main className="content">
@@ -65,93 +73,17 @@ function Main(props) {
       <section className="photo">
         <ul className="photo__cards">
           {cards.map((item) => {
-            return <Card card={item} onCardClick={props.onCardClick} onDeleteClick={props.onDeleteClick}/>;
+            return (
+              <Card
+                key={item._id}
+                card={item}
+                onCardClick={props.onCardClick}
+                onDeleteClick={props.onDeleteClick}
+              />
+            );
           })}
         </ul>
       </section>
-      <PopupWithForm
-        name="form-edit"
-        title="Редактировать профиль"
-        isOpen={props.isEditProfilePopupOpen}
-        onClose={props.onClose}
-      >
-        <input
-          type="text"
-          className="modal__field modal__field_assign_name"
-          placeholder="Введите имя"
-          name="name"
-          id="field-name"
-          required
-          minLength="2"
-          maxLength="40"
-        />
-        <p className="modal__field-error" id="field-name-error" />
-        <input
-          type="text"
-          className="modal__field modal__field_assign_profession"
-          placeholder="Введите профессию"
-          name="about"
-          id="field-profession"
-          required
-          minLength="2"
-          maxLength="200"
-        />
-        <p className="modal__field-error" id="field-profession-error" />
-      </PopupWithForm>
-      <PopupWithForm
-        name="form-add"
-        title="Новое место"
-        isOpen={props.isAddPlacePopupOpen}
-        onClose={props.onClose}
-      >
-        <input
-          type="text"
-          className="modal__field modal__field_assign_title"
-          placeholder="Название"
-          name="name"
-          id="field-title"
-          required
-          minLength="1"
-          maxLength="30"
-        />
-        <p className="modal__field-error" id="field-title-error" />
-        <input
-          type="url"
-          className="modal__field modal__field_assign_link"
-          placeholder="Ссылка на картинку"
-          name="link"
-          id="field-link"
-          required
-        />
-        <p className="modal__field-error" id="field-link-error" />
-      </PopupWithForm>
-      <PopupWithForm
-        name="form-avatar"
-        title="Обновить аватар"
-        isOpen={props.isEditAvatarPopupOpen}
-        onClose={props.onClose}
-      >
-        <input
-          type="url"
-          className="modal__field modal__field_assign_link"
-          placeholder="Ссылка на картинку"
-          name="avatar"
-          id="field-link"
-          required
-        />
-        <p className="modal__field-error" id="field-link-error" />
-      </PopupWithForm>
-      <PopupWithForm
-        name="confirm-delete"
-        title="Вы уверены?"
-        isOpen={props.isDeletePopupOpen}
-        onClose={props.onClose}
-      />
-      <ImagePopup
-        isOpen={props.isImagePopupOpen}
-        card={props.selectedCard}
-        onClose={props.onClose}
-      />
     </main>
   );
 }

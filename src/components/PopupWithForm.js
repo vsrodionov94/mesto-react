@@ -9,7 +9,7 @@ function PopupWithForm(props) {
     >
       <form className="modal__form" name={props.name} noValidate>
         <h3 className="modal__title">{props.title}</h3>
-        {props.children ? props.children.map((child) => child) : undefined}
+        {props.children}
         <button type="submit" className="modal__submit-button">
           Сохранить
         </button>
