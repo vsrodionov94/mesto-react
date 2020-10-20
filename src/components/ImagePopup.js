@@ -1,25 +1,19 @@
 import React from "react";
 
-function ImagePopup(props) {
+function ImagePopup({ isOpen, card, onClose }) {
   return (
     <section
-      className={`modal modal_assign_album ${
-        props.isOpen ? "modal_opened" : ""
-      }`}
+      className={`modal modal_assign_album ${isOpen ? "modal_opened" : ""}`}
     >
       <div className="modal__large-photo">
-        <img
-          className="modal__image"
-          src={props.card.link}
-          alt={props.card.name}
-        />
+        <img className="modal__image" src={card.link} alt={card.name} />
         <button
           className="modal__esc-button"
           type="button"
           aria-label="Закрыть"
-          onClick={props.onClose}
+          onClick={onClose}
         />
-        <p className="modal__caption"> {props.card.name} </p>
+        <p className="modal__caption"> {card.name} </p>
       </div>
     </section>
   );

@@ -1,15 +1,14 @@
 import React from "react";
 
-function PopupWithForm(props) {
+function PopupWithForm({ isOpen, title, name, children, onClose }) {
+  const classSelector = `modal modal_assign_${name} ${
+    isOpen ? "modal_opened" : ""
+  }`;
   return (
-    <section
-      className={`modal modal_assign_${props.name} ${
-        props.isOpen ? "modal_opened" : ""
-      }`}
-    >
-      <form className="modal__form" name={props.name} noValidate>
-        <h3 className="modal__title">{props.title}</h3>
-        {props.children}
+    <section className={classSelector}>
+      <form className="modal__form" name={name} noValidate>
+        <h3 className="modal__title">{title}</h3>
+        {children}
         <button type="submit" className="modal__submit-button">
           Сохранить
         </button>
@@ -17,7 +16,7 @@ function PopupWithForm(props) {
           className="modal__esc-button"
           type="button"
           aria-label="Закрыть"
-          onClick={props.onClose}
+          onClick={onClose}
         />
       </form>
     </section>
