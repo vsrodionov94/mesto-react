@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/vsrodionov94/mesto-reactstatic/css/main.45e0db87.chunk.css",
+    "main.js": "/vsrodionov94/mesto-reactstatic/js/main.8fe537d5.chunk.js",
+    "main.js.map": "/vsrodionov94/mesto-reactstatic/js/main.8fe537d5.chunk.js.map",
+    "runtime-main.js": "/vsrodionov94/mesto-reactstatic/js/runtime-main.721da574.js",
+    "runtime-main.js.map": "/vsrodionov94/mesto-reactstatic/js/runtime-main.721da574.js.map",
+    "static/js/2.56abb410.chunk.js": "/vsrodionov94/mesto-reactstatic/js/2.56abb410.chunk.js",
+    "static/js/2.56abb410.chunk.js.map": "/vsrodionov94/mesto-reactstatic/js/2.56abb410.chunk.js.map",
+    "index.html": "/vsrodionov94/mesto-reactindex.html",
+    "precache-manifest.7b5399b9fb2320d6bce748c30f759ede.js": "/vsrodionov94/mesto-reactprecache-manifest.7b5399b9fb2320d6bce748c30f759ede.js",
+    "service-worker.js": "/vsrodionov94/mesto-reactservice-worker.js",
+    "static/css/main.45e0db87.chunk.css.map": "/vsrodionov94/mesto-reactstatic/css/main.45e0db87.chunk.css.map",
+    "static/js/2.56abb410.chunk.js.LICENSE.txt": "/vsrodionov94/mesto-reactstatic/js/2.56abb410.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/vsrodionov94/mesto-reactstatic/media/like.6c74d9b5.svg",
+    "static/media/logo.svg": "/vsrodionov94/mesto-reactstatic/media/logo.855a8c98.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.721da574.js",
+    "static/js/2.56abb410.chunk.js",
+    "static/css/main.45e0db87.chunk.css",
+    "static/js/main.8fe537d5.chunk.js"
+  ]
+}
