@@ -1,12 +1,12 @@
 import React from "react";
 
-function PopupWithForm({ isOpen, title, name, children, onClose }) {
+function PopupWithForm({ isOpen, title, name, children, onClose, onSubmit }) {
   const classSelector = `modal modal_assign_${name} ${
     isOpen ? "modal_opened" : ""
   }`;
   return (
     <section className={classSelector}>
-      <form className="modal__form" name={name} noValidate>
+      <form className="modal__form" name={name} noValidate onSubmit={onSubmit}>
         <h3 className="modal__title">{title}</h3>
         {children}
         <button type="submit" className="modal__submit-button">
