@@ -11,23 +11,11 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vsrodionov94/mesto-react.git"
-  },
-  "author": "Vladimir Rodionov",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vsrodionov94/mesto-react/issues"
-  },
-  "homepage": "https://github.com/vsrodionov94/mesto-react#readme",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
